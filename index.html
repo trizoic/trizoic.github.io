@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>trizoic - Welcome</title>
+    <title>trizoic - Frontend Developer</title>
     <style>
         * {
             margin: 0;
@@ -12,80 +12,262 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             color: #fff;
-        }
-        .container {
-            text-align: center;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 90%;
-        }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            object-fit: cover;
-        }
-        .bio {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
             line-height: 1.6;
         }
-        .links {
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            padding: 60px 0;
+        }
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #e94560;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .title {
+            font-size: 1.2rem;
+            color: #e94560;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .bio {
+            color: #a0a0a0;
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        .social-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
         }
-        .links a {
-            display: inline-block;
-            padding: 12px 30px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50px;
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
             color: #fff;
             text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            background: #e94560;
+            transform: translateY(-3px);
+        }
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .section-title::before {
+            content: '';
+            width: 5px;
+            height: 30px;
+            background: #e94560;
+            border-radius: 3px;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+        .skill-tag {
+            background: rgba(233, 69, 96, 0.2);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-align: center;
             font-weight: 500;
             transition: all 0.3s ease;
-            border: 2px solid transparent;
         }
-        .links a:hover {
-            background: rgba(255, 255, 255, 0.4);
+        .skill-tag:hover {
+            background: rgba(233, 69, 96, 0.4);
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        .footer {
-            margin-top: 30px;
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #e94560;
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.2);
+        }
+        .project-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #e94560;
+        }
+        .project-card p {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .project-tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #a0a0a0;
+        }
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #e94560;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .project-link:hover {
+            text-decoration: underline;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin: 40px 0;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e94560;
+        }
+        .stat-label {
+            color: #a0a0a0;
             font-size: 0.9rem;
-            opacity: 0.7;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: #e94560;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .stats {
+                gap: 30px;
+            }
+            .stat-number {
+                font-size: 2rem;
+            }
+            .section {
+                padding: 25px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to My Page!</h1>
-        <p class="bio">Hi, I'm trizoic. This is my GitHub Pages personal homepage. Stay tuned for more content!</p>
-        <div class="links">
-            <a href="https://github.com/trizoic" target="_blank">GitHub Profile</a>
-            <a href="https://github.com/trizoic/trizoic.github.io" target="_blank">View Source</a>
+        <header>
+            <img src="https://avatars.githubusercontent.com/u/274373190?v=4" alt="trizoic" class="avatar">
+            <h1>trizoic</h1>
+            <p class="title">Frontend Developer</p>
+            <p class="bio">热爱技术，专注于现代前端开发。追求简洁优雅的代码，注重用户体验。</p>
+            <div class="social-links">
+                <a href="https://github.com/trizoic" target="_blank" title="GitHub">GH</a>
+                <a href="https://github.com/trizoic/trizoic.github.io" target="_blank" title="Source Code">SC</a>
+            </div>
+        </header>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Followers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Stars</div>
+            </div>
         </div>
-        <p class="footer">© 2026 trizoic. All rights reserved.</p>
+
+        <section class="section">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Vue.js</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Webpack</span>
+                <span class="skill-tag">Vite</span>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>trizoic.github.io</h3>
+                    <p>个人主页 - 使用纯 HTML/CSS 构建的响应式个人网站</p>
+                    <div class="project-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">GitHub Pages</span>
+                    </div>
+                    <a href="https://github.com/trizoic/trizoic.github.io" target="_blank" class="project-link">View Project →</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 trizoic. Built with 💜 and <a href="https://github.com" target="_blank">GitHub</a></p>
+        </footer>
     </div>
 </body>
 </html>
