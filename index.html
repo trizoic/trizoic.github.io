@@ -89,19 +89,19 @@
             color: var(--text);
         }
         .container {
-            max-width: 720px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 32px;
+            padding: 0 48px;
         }
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
+            padding: 0 32px;
         }
         .hero-content {
             max-width: 720px;
-            margin: 0 auto;
-            text-align: center;
+            margin-left: 15%;
         }
         .hero-label {
             font-size: 0.75rem;
@@ -110,7 +110,6 @@
             letter-spacing: 0.08em;
             text-transform: uppercase;
             margin-bottom: 32px;
-            text-align: center;
             opacity: 0;
             animation: fadeIn 0.8s 0.1s ease forwards;
         }
@@ -138,14 +137,12 @@
             color: var(--text-muted);
             line-height: 1.8;
             max-width: 520px;
-            margin: 0 auto 48px;
-            text-align: center;
+            margin-bottom: 48px;
             opacity: 0;
             animation: fadeIn 0.8s 0.5s ease forwards;
         }
         .hero-cta {
             display: flex;
-            justify-content: center;
             gap: 24px;
             opacity: 0;
             animation: fadeIn 0.8s 0.65s ease forwards;
@@ -176,18 +173,6 @@
         .btn-secondary:hover {
             border-color: var(--text);
         }
-        .scroll-indicator {
-            position: absolute;
-            bottom: 48px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.6875rem;
-            color: var(--text-muted);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            opacity: 0;
-            animation: fadeIn 1s 1s ease forwards;
-        }
         .section {
             padding: 160px 0;
             border-top: 1px solid var(--border);
@@ -215,9 +200,9 @@
         }
         .project-card {
             display: grid;
-            grid-template-columns: 1fr 280px;
+            grid-template-columns: 1fr 320px;
             gap: 48px;
-            padding: 40px 0;
+            padding: 48px 0;
             border-top: 1px solid var(--border);
             transition: opacity 0.3s;
         }
@@ -378,8 +363,12 @@
             .hero {
                 padding: 0 24px;
             }
+            .hero-content {
+                margin-left: 0;
+            }
             .container {
                 padding: 0 24px;
+                max-width: 100%;
             }
             .project-card {
                 grid-template-columns: 1fr;
@@ -418,25 +407,24 @@
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <p class="hero-label">前端开发工程师</p>
+            <p class="hero-label">Frontend Developer</p>
             <h1>
-                <span class="line"><span>创造数字</span></span>
-                <span class="line"><span>体验之美。</span></span>
+                <span class="line"><span>Building digital</span></span>
+                <span class="line"><span>experiences.</span></span>
             </h1>
-            <p class="hero-desc">专注于简洁、优雅的用户界面。追求极致的细节与体验，让每一次交互都变得有意义。</p>
+            <p class="hero-desc">专注于创造简洁、优雅的用户界面。追求极致的细节与体验，让每一次交互都变得有意义。</p>
             <div class="hero-cta">
-                <a href="#contact" class="btn btn-primary">联系我</a>
-                <a href="#work" class="btn btn-secondary">查看项目</a>
+                <a href="#contact" class="btn btn-primary">Get in touch</a>
+                <a href="#work" class="btn btn-secondary">View work</a>
             </div>
         </div>
-        <div class="scroll-indicator">Scroll</div>
     </section>
 
     <section class="section" id="work">
         <div class="container">
             <div class="section-header">
-                <p class="section-label">精选项目</p>
-                <h2 class="section-title">项目作品</h2>
+                <p class="section-label">Selected Work</p>
+                <h2 class="section-title">Projects</h2>
             </div>
             <div class="projects-grid">
                 <article class="project-card">
@@ -497,8 +485,8 @@
     <section class="section" id="skills">
         <div class="container">
             <div class="section-header">
-                <p class="section-label">专业技能</p>
-                <h2 class="section-title">技术栈</h2>
+                <p class="section-label">Expertise</p>
+                <h2 class="section-title">Skills</h2>
             </div>
             <div class="skills-grid">
                 <div class="skill-item">
@@ -532,9 +520,9 @@
     <section class="section" id="contact">
         <div class="container">
             <div class="contact-section">
-                <p class="section-label">联系方式</p>
-                <h2 class="section-title">让我们合作</h2>
-                <p>有项目想法？期待您的来信。期待与您共同创造出色的作品。</p>
+                <p class="section-label">Contact</p>
+                <h2 class="section-title">Let's work together</h2>
+                <p>Have a project in mind? I'd love to hear about it. Drop me a line and let's create something great.</p>
                 <a href="mailto:2733909678@qq.com" class="contact-email">2733909678@qq.com</a>
             </div>
         </div>
@@ -544,7 +532,7 @@
         <p>© 2026 trizoic</p>
         <div class="footer-links">
             <a href="https://github.com/trizoic" target="_blank">GitHub</a>
-            <a href="mailto:2733909678@qq.com">邮箱</a>
+            <a href="mailto:2733909678@qq.com">Email</a>
         </div>
     </footer>
 
