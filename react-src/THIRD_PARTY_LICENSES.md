@@ -1,6 +1,6 @@
 # Third-party notices
 
-The components `Aurora`, `BlurText`, `SpotlightCard`, and `ShinyText` are adapted from
+The components `Particles`, `BlurText`, `SpotlightCard`, and `ShinyText` are adapted from
 [React Bits](https://github.com/DavidHDev/react-bits) by David Haz.
 
 MIT + Commons Clause License Condition v1.0

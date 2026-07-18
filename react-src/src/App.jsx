@@ -1,15 +1,17 @@
 import { motion, useScroll, useSpring } from 'motion/react';
 import { useRef } from 'react';
-import Aurora from './components/Aurora.jsx';
+import Particles from './components/Particles.jsx';
 import BlurText from './components/BlurText.jsx';
 import SpotlightCard from './components/SpotlightCard.jsx';
 import ShinyText from './components/ShinyText.jsx';
 
 const principles = [
-  { number: '01', title: 'Visual systems', text: '让排版、颜色和空间形成清晰秩序，而不是只追求一张好看的截图。', accent: '#6fffd3' },
-  { number: '02', title: 'Interaction logic', text: '动效解释状态、回应操作，并在恰当的时候安静下来。', accent: '#a78bfa' },
-  { number: '03', title: 'Fast by default', text: '控制依赖与资源体积，让体验从第一次加载就保持轻快。', accent: '#ff78b7' }
+  { number: '01', title: 'Visual systems', text: 'Typography, color, and space working as one clear system—not a collection of isolated moments.', accent: '#6fffd3' },
+  { number: '02', title: 'Interaction logic', text: 'Motion that explains state, responds to intent, and knows when to become quiet.', accent: '#a78bfa' },
+  { number: '03', title: 'Fast by default', text: 'Deliberate dependencies and lean assets, so the experience feels immediate from the first visit.', accent: '#ff78b7' }
 ];
+
+const PARTICLE_COLORS = ['#ffffff', '#6fffd3', '#a78bfa'];
 
 function MagneticLink({ href, children, external = false, className = '' }) {
   const ref = useRef(null);
@@ -36,34 +38,38 @@ function App() {
   return (
     <div className="app-shell">
       <motion.div className="scroll-progress" style={{ scaleX: progress }} />
-      <a className="skip-link" href="#content">跳到主要内容</a>
+      <a className="skip-link" href="#content">Skip to content</a>
 
       <header className="react-nav">
-        <a className="react-brand" href="#top" aria-label="返回 React 版本首页">
+        <a className="react-brand" href="#top" aria-label="React edition home">
           <span className="brand-glyph">T</span><span>trizoic</span><small>/react</small>
         </a>
-        <nav aria-label="React 版本导航">
-          <a href="#approach">方法</a><a href="#project">项目</a><a href="#contact">联系</a>
+        <nav aria-label="React edition navigation">
+          <a href="#approach">Approach</a><a href="#project">Work</a><a href="#contact">Contact</a>
         </nav>
-        <MagneticLink href="/" className="classic-link">经典版 <span>↗</span></MagneticLink>
+        <MagneticLink href="/" className="classic-link">Classic <span>↗</span></MagneticLink>
       </header>
 
       <main id="content">
         <section className="react-hero" id="top">
-          <div className="hero-aurora"><Aurora /></div>
+          <div className="hero-particles">
+            <Particles particleCount={220} particleSpread={12} speed={0.085} particleColors={PARTICLE_COLORS}
+              moveParticlesOnHover particleHoverFactor={1.35} alphaParticles particleBaseSize={115}
+              sizeRandomness={1.25} cameraDistance={20} pixelRatio={1} />
+          </div>
           <div className="hero-noise" aria-hidden="true" />
           <div className="hero-topline">
             <ShinyText text="React edition · 2026" />
             <span className="availability"><i /> Open to ideas</span>
           </div>
           <div className="hero-center">
-            <p className="hero-kicker">Designing in the space between</p>
-            <BlurText text="CODE MOTION CLARITY" as="h1" className="react-title" />
+            <p className="hero-kicker"><span>New</span> React edition v2</p>
+            <BlurText text="INTERFACES THAT MOVE WITH INTENTION" as="h1" className="react-title" />
             <motion.p className="react-intro" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .7, duration: .7 }}>
-              把工程的可靠与视觉的情绪放在同一个界面里。<br />这是一个更大胆、更有动态感的个人主页实验。
+              Engineering discipline meets visual instinct.<br />A personal web experiment designed to feel alive, clear, and considered.
             </motion.p>
             <motion.div className="hero-cta" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
-              <MagneticLink href="#project" className="primary-orb"><span>探索页面</span><b>↓</b></MagneticLink>
+              <MagneticLink href="#project" className="primary-orb"><span>Explore work</span><b>↓</b></MagneticLink>
               <a className="quiet-link" href="https://github.com/trizoic" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
             </motion.div>
           </div>
@@ -75,7 +81,7 @@ function App() {
         <section className="manifesto" id="approach">
           <div className="section-label"><span>01</span> Approach</div>
           <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .35 }} transition={{ duration: .8 }}>
-            好的界面不是更多效果，<br />而是每个元素都知道<br /><em>为什么存在。</em>
+            Great interfaces need<br />fewer effects—and<br /><em>stronger reasons.</em>
           </motion.p>
         </section>
 
@@ -94,7 +100,7 @@ function App() {
           </div>
         </section>
 
-        <section className="ticker" aria-label="技术关键词">
+        <section className="ticker" aria-label="Technology keywords">
           <div className="ticker-track">
             <span>REACT</span><i>✦</i><span>INTERACTION</span><i>✦</i><span>WEBGL</span><i>✦</i><span>ACCESSIBILITY</span><i>✦</i><span>PERFORMANCE</span><i>✦</i>
             <span aria-hidden="true">REACT</span><i aria-hidden="true">✦</i><span aria-hidden="true">INTERACTION</span><i aria-hidden="true">✦</i><span aria-hidden="true">WEBGL</span><i aria-hidden="true">✦</i><span aria-hidden="true">ACCESSIBILITY</span><i aria-hidden="true">✦</i><span aria-hidden="true">PERFORMANCE</span><i aria-hidden="true">✦</i>
@@ -102,15 +108,15 @@ function App() {
         </section>
 
         <section className="project-section" id="project">
-          <div className="section-label light"><span>03</span> Selected build</div>
+          <div className="section-label"><span>03</span> Selected build</div>
           <div className="project-layout">
             <div className="project-copy">
               <ShinyText text="Live · GitHub Pages" />
               <h2>Two modes.<br /><em>One identity.</em></h2>
-              <p>同一个域名下的两种表达：经典版克制、清晰；React 版更具动势与实验感。它们共享真实内容，但拥有不同的视觉节奏。</p>
+              <p>Two expressions under one domain. The classic edition is restrained and direct; this React edition is kinetic and exploratory. Shared intent, distinct rhythm.</p>
               <div className="project-actions">
-                <MagneticLink href="https://github.com/trizoic/trizoic.github.io" external className="project-button">查看源码 <span>↗</span></MagneticLink>
-                <a href="/">访问经典版</a>
+                <MagneticLink href="https://github.com/trizoic/trizoic.github.io" external className="project-button">View source <span>↗</span></MagneticLink>
+                <a href="/">Visit classic</a>
               </div>
             </div>
             <motion.div className="interface-window" initial={{ opacity: 0, rotate: 2, y: 30 }} whileInView={{ opacity: 1, rotate: 0, y: 0 }} viewport={{ once: true, amount: .25 }} transition={{ duration: .9 }}>
@@ -142,4 +148,3 @@ function App() {
 }
 
 export default App;
-
